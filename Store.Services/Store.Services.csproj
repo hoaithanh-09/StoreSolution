@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <RunAnalyzersDuringLiveAnalysis>False</RunAnalyzersDuringLiveAnalysis>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Remove="Core\Common\" />
+    <None Remove="Core\Authentication\" />
+	<None Remove="MappingProfiles\Common\" />
+    <None Remove="MappingProfiles\Authentication\" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="11.0.1" />
+    <PackageReference Include="BCrypt.Net-Next" Version="4.0.3" />
+    <PackageReference Include="NPOI" Version="2.5.4" />
+    <PackageReference Include="Hangfire.Core" Version="1.7.25" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+    <PackageReference Include="System.Linq" Version="4.3.0" />
+    <PackageReference Include="System.Linq.Expressions" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>  
+    <ProjectReference Include="..\Store.Data\Store.Data.csproj" />
+    <ProjectReference Include="..\Store.ViewModels\Store.ViewModels.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Core\Common\" />
+    <Folder Include="Core\Authentication\" />
+    <Folder Include="MappingProfiles\Common\" />
+  </ItemGroup>
+</Project>

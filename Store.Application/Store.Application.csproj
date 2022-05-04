@@ -1,0 +1,64 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<RootNamespace>Store.Application</RootNamespace>
+		<UserSecretsId>f184c2d8-c882-419d-855a-c05d274b5f2e</UserSecretsId>
+	</PropertyGroup>
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Store (Develop)' " />
+	<PropertyGroup Condition=" '$(RunConfiguration)' == 'Store (Product)' " />
+	<ItemGroup>
+	  <Compile Remove="wwwroot\**" />
+	  <Content Remove="wwwroot\**" />
+	  <EmbeddedResource Remove="wwwroot\**" />
+	  <None Remove="wwwroot\**" />
+	  <None Remove="Microsoft.AspNetCore.Mvc.Versioning" />
+	  <None Remove="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" />
+	  <None Remove="Serilog" />
+	  <None Remove="Serilog.Extensions.Logging" />
+	  <None Remove="Serilog.Settings.Configuration" />
+	  <None Remove="Serilog.Enrichers.Environment" />
+	  <None Remove="Serilog.Exceptions" />
+	  <None Remove="Serilog.Sinks.Elasticsearch" />
+	  <None Remove="Serilog.AspNetCore" />
+	</ItemGroup>
+	<ItemGroup>
+		<Folder Include="Resources\Templates\" />
+	</ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.13.1" />
+
+		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.10" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning" Version="5.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Mvc.Versioning.ApiExplorer" Version="5.0.0" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.11" />
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.10">
+		  <PrivateAssets>all</PrivateAssets>
+		  <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.10">
+			<PrivateAssets>all</PrivateAssets>
+			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		</PackageReference>
+		<PackageReference Include="Microsoft.IdentityModel.Tokens" Version="6.13.1" />
+		<PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+		<PackageReference Include="AutoMapper" Version="11.0.1" />
+		<PackageReference Include="NSwag.AspNetCore" Version="13.15.10" />
+		<PackageReference Include="Hangfire.Core" Version="1.7.26" />
+		<PackageReference Include="Hangfire.AspNetCore" Version="1.7.26" />
+		<PackageReference Include="Hangfire.SqlServer" Version="1.7.26" />
+		<PackageReference Include="Hangfire.MemoryStorage" Version="1.7.0" />
+		<PackageReference Include="Serilog" Version="2.10.0" />
+		<PackageReference Include="Serilog.Extensions.Logging" Version="3.1.0" />
+		<PackageReference Include="Serilog.Settings.Configuration" Version="3.3.0" />
+		<PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0" />
+		<PackageReference Include="Serilog.Exceptions" Version="8.1.0" />
+		<PackageReference Include="Serilog.Sinks.Elasticsearch" Version="8.4.1" />
+		<PackageReference Include="Serilog.AspNetCore" Version="5.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\Store.Data\Store.Data.csproj" />
+	  <ProjectReference Include="..\Store.Services\Store.Services.csproj" />
+	  <ProjectReference Include="..\Store.ViewModels\Store.ViewModels.csproj" />
+	</ItemGroup>
+</Project>
