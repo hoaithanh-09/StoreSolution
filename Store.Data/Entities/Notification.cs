@@ -10,7 +10,7 @@ namespace Store.Data.Entities.Common
         public DateTime DateCreated { get; set; }
         public int CustomerId { get; set; }
         public int ShipperId { get; set; }
-        public Customer Customer { get; set; }
-        public Shipper Shipper { get; set; }
+        public virtual Customer Customer { get; set; }
+        public virtual Shipper Shipper { get; set; }
     }
 }

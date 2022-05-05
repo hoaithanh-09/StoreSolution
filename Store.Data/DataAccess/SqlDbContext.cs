@@ -90,6 +90,7 @@ namespace Store.Data.DataAccess
             #region Seed
             User user = new User()
             {
+                Id=1,
                 Username = "admin",
                 Password = "$2a$10$Vp37Kfp5vdUfTKIXAEOByegT7qruOE96ysBfKxV5ai/J1/sjZMEJK",
                 Fullname = "admin",

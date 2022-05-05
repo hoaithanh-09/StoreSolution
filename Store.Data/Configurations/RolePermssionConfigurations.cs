@@ -8,7 +8,7 @@ namespace Store.Data.Configurations
     {
         public void Configure(EntityTypeBuilder<RolePermission> builder)
         {
-            throw new System.NotImplementedException();
+            builder.HasKey(x=>x.Id);
         }
     }
 }
