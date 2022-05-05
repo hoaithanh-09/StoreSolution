@@ -1,13 +1,11 @@
-﻿using System;
+﻿using Store.Data.Entities.Common;
 
-namespace Store.Data.Entities.Common
+namespace Store.Data.Entities
 {
-    public class OrderCoupon
+    public class OrderCoupon: BaseEntity
     {
-        public int Id { get; set; }
         public int OrderId { get; set; }
         public int CouponId { get; set; }
-        public DateTime DateCreated { get; set; }
         public virtual Order Order { get; set; }
         public virtual Coupon Coupon { get; set; }
     }

@@ -1,18 +1,26 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Store.Data.Entities.Common;
 using Store.Data.Enums;
+using Store.Data.Entities;
 
 namespace Store.Data.Configurations
 {
-    public class ProductConfigurations : IEntityTypeConfiguration<Product>
+    public class ProductConfigurations : BaseConfigurations<Product>
     {
-        public void Configure(EntityTypeBuilder<Product> builder)
+        protected override void ConfigureMoreProperties(EntityTypeBuilder<Product> builder)
         {
-            builder.HasKey(x=>x.Id);
-            builder.Property(x => x.Status).HasDefaultValue(Status.Active);
-            builder.HasOne(x=>x.Supplier).WithMany(x=>x.Products).HasForeignKey(x=>x.SupplierId).OnDelete(DeleteBehavior.NoAction);            
+            builder
+                .Property(x => x.Status)
+                .HasDefaultValue(Status.Active);
 
+            builder
+                .HasOne(x => x.Supplier)
+                .WithMany(x => x.Products)
+                .HasForeignKey(x => x.SupplierId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }
+
+
+

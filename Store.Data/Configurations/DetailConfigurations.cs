@@ -1,16 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Store.Data.Entities.Common;
-using System;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Store.Data.Entities;
 
 namespace Store.Data.Configurations
 {
-    public class DetailConfigurations : IEntityTypeConfiguration<Detail>
-    {
-        public void Configure(EntityTypeBuilder<Detail> builder)
-        {
-            builder.HasKey(x => x.Id);
-
-        }
-    }
+	public class DetailConfigurations : BaseConfigurations<Detail>
+	{
+		protected override void ConfigureMoreProperties(EntityTypeBuilder<Detail> builder)
+		{
+		}
+	}
 }

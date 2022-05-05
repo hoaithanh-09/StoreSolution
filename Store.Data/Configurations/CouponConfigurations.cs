@@ -1,14 +1,12 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Store.Data.Entities.Common;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
+using Store.Data.Entities;
 
 namespace Store.Data.Configurations
 {
-    public class CouponConfigurations : IEntityTypeConfiguration<Coupon>
-    {
-        public void Configure(EntityTypeBuilder<Coupon> builder)
-        {
-            builder.HasKey(x => x.Id);
-        }
-    }
+	public class CouponConfigurations : BaseConfigurations<Coupon>
+	{
+		protected override void ConfigureMoreProperties(EntityTypeBuilder<Coupon> builder)
+		{
+		}
+	}
 }

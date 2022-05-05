@@ -1,10 +1,10 @@
 ﻿using System.Collections.Generic;
+using Store.Data.Entities.Common;
 
-namespace Store.Data.Entities.Common
+namespace Store.Data.Entities
 {
-    public class Category
+    public class Category: BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public string Slug { get; set; }
         public int Level { get; set; }

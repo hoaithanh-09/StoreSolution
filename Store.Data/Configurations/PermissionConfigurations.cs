@@ -1,15 +1,14 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata.Builders;
+﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.Data.Entities;
 
 namespace Store.Data.Configurations
 {
-    public class PermissionConfigurations : IEntityTypeConfiguration<Permission>
+    public class PermissionConfigurations : BaseConfigurations<Permission>
     {
-        public void Configure(EntityTypeBuilder<Permission> builder)
+        protected override void ConfigureMoreProperties(EntityTypeBuilder<Permission> builder)
         {
-            throw new System.NotImplementedException();
         }
     }
 }
+
 

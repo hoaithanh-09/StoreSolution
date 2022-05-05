@@ -1,18 +1,27 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.Data.Entities;
-using System;
 
 namespace Store.Data.Configurations
 {
-    public class CartConfigurations : IEntityTypeConfiguration<Cart>
+    public class CartConfigurations: BaseConfigurations<Cart>
     {
-        public void Configure(EntityTypeBuilder<Cart> builder)
+        protected override void ConfigureMoreProperties(EntityTypeBuilder<Cart> builder)
         {
-            builder.HasKey(x => x.Id);
-            builder.HasOne(x=>x.Customer).WithMany(x=>x.Carts).HasForeignKey(x=>x.CustomerId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(x => x.Product).WithMany(x => x.Carts).HasForeignKey(x => x.ProductId).OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasOne(x => x.Customer)
+                .WithMany(x => x.Carts)
+                .HasForeignKey(x => x.CustomerId)
+                .OnDelete(DeleteBehavior.Cascade);
 
+            builder
+                .HasOne(x => x.Product)
+                .WithMany(x => x.Carts)
+                .HasForeignKey(x => x.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
+
+
+

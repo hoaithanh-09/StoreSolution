@@ -1,17 +1,30 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Store.Data.Entities.Common;
+using Store.Data.Entities;
 
 namespace Store.Data.Configurations
 {
-    public class OrderProductConfigurations : IEntityTypeConfiguration<OrderProduct>
+    public class OrderProductConfigurations : BaseConfigurations<OrderProduct>
     {
-        public void Configure(EntityTypeBuilder<OrderProduct> builder)
+        protected override void ConfigureMoreProperties(EntityTypeBuilder<OrderProduct> builder)
         {
-            builder.HasKey(x => x.Id);
-            builder.HasOne(x => x.Product).WithMany(x => x.OrderProducts).HasForeignKey(x => x.ProductId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne(x => x.Order).WithMany(x => x.OrderProducts).HasForeignKey(x => x.OrderId).OnDelete(DeleteBehavior.Cascade);
-            builder.HasOne(x => x.ProductPrice).WithMany(x => x.OrderProducts).HasForeignKey(x => x.ProductPriceId).OnDelete(DeleteBehavior.NoAction);
+            builder
+                .HasOne(x => x.Product)
+                .WithMany(x => x.OrderProducts)
+                .HasForeignKey(x => x.ProductId)
+                .OnDelete(DeleteBehavior.NoAction);
+
+            builder
+                .HasOne(x => x.Order)
+                .WithMany(x => x.OrderProducts)
+                .HasForeignKey(x => x.OrderId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            builder
+                .HasOne(x => x.ProductPrice)
+                .WithMany(x => x.OrderProducts)
+                .HasForeignKey(x => x.ProductPriceId)
+                .OnDelete(DeleteBehavior.NoAction);
         }
     }
 }

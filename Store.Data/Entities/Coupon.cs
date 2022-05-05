@@ -1,12 +1,12 @@
-﻿using Store.Data.Enums;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Store.Data.Enums;
+using Store.Data.Entities.Common;
 
-namespace Store.Data.Entities.Common
+namespace Store.Data.Entities
 {
-    public class Coupon
+    public class Coupon: BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public CouponStatus Type { get; set; }
         public decimal Amount { get; set; }

@@ -1,15 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Store.Data.Entities;
-using Store.Data.Configurations;
-using Microsoft.EntityFrameworkCore;
 
 namespace Store.Data.Configurations
 {
-    public class UserConfigurations : IEntityTypeConfiguration<User>
-    {
-        public void Configure(EntityTypeBuilder<User> builder)
-        {
-        }
-    }
+	public class UserConfigurations : BaseConfigurations<User>
+	{
+		protected override void ConfigureMoreProperties(EntityTypeBuilder<User> builder)
+		{
+		}
+	}
 }
 

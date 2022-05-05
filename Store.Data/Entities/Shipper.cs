@@ -1,12 +1,11 @@
-﻿using Store.Data.Entities.Common;
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Store.Data.Entities.Common;
 
 namespace Store.Data.Entities
 {
-    public class Shipper
+    public class Shipper: BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public DateTime DOB { get; set; }
         public bool Gender { get; set; }
@@ -16,6 +15,5 @@ namespace Store.Data.Entities
         public virtual Address Address { get; set; }
         public virtual List<Notification > Notifications { get; set; }
         public virtual List<Order> Orders { get; set; }
-
     }
 }

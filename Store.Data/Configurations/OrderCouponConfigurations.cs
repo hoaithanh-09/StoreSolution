@@ -1,18 +1,25 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Store.Data.Entities.Common;
-using System;
+using Store.Data.Entities;
 
 namespace Store.Data.Configurations
 {
-    public class OrderCouponConfigurations : IEntityTypeConfiguration<OrderCoupon>
+    public class OrderCouponConfigurations : BaseConfigurations<OrderCoupon>
     {
-        public void Configure(EntityTypeBuilder<OrderCoupon> builder)
+        protected override void ConfigureMoreProperties(EntityTypeBuilder<OrderCoupon> builder)
         {
-            builder.HasKey(x=>x.Id);
-            builder.HasOne(x=>x.Coupon).WithMany(x=>x.OrderCoupons).HasForeignKey(x=>x.CouponId).OnDelete(DeleteBehavior.NoAction);
-            builder.HasOne(x => x.Order).WithMany(x => x.OrderCoupons).HasForeignKey(x => x.OrderId).OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasOne(x => x.Coupon)
+                .WithMany(x => x.OrderCoupons)
+                .HasForeignKey(x => x.CouponId)
+                .OnDelete(DeleteBehavior.NoAction);
 
+            builder
+                .HasOne(x => x.Order)
+                .WithMany(x => x.OrderCoupons)
+                .HasForeignKey(x => x.OrderId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
+

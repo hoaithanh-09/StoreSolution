@@ -1,12 +1,10 @@
 ﻿using Store.Data.Enums;
-using System;
+using Store.Data.Entities.Common;
 
-namespace Store.Data.Entities.Common
+namespace Store.Data.Entities
 {
-    public class OrderStatus
+    public class OrderStatus: BaseEntity
     {
-        public int Id { get; set; }
-        public DateTime DateCreated { get; set; }
         public OrderStatusEnums Status { get; set; }
         public string Note { get; set; }
         public int OrderId { get; set; }

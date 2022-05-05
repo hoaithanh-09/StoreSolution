@@ -1,15 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Store.Data.Entities.Common;
+using Store.Data.Entities;
 
 namespace Store.Data.Configurations
 {
-    public class SupplierConfigurations : IEntityTypeConfiguration<Supplier>
+    public class SupplierConfigurations : BaseConfigurations<Supplier>
     {
-        public void Configure(EntityTypeBuilder<Supplier> builder)
+        protected override void ConfigureMoreProperties(EntityTypeBuilder<Supplier> builder)
         {
-            builder.HasKey(x=>x.Id);
-            builder.HasOne(x => x.Address).WithMany(x => x.Suppliers).HasForeignKey(x => x.AddressId).OnDelete(DeleteBehavior.NoAction);
+            builder
+                .HasOne(x => x.Address)
+                .WithMany(x => x.Suppliers)
+                .HasForeignKey(x => x.AddressId)
+                .OnDelete(DeleteBehavior.NoAction);
+
         }
     }
 }

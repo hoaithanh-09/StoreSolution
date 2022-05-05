@@ -1,14 +1,13 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Store.Data.Entities.Common;
+using Store.Data.Entities;
 
 namespace Store.Data.Configurations
 {
-    public class PaymentConfigurations : IEntityTypeConfiguration<Payment>
+    public class PaymentConfigurations : BaseConfigurations<Payment>
     {
-        public void Configure(EntityTypeBuilder<Payment> builder)
+        protected override void ConfigureMoreProperties(EntityTypeBuilder<Payment> builder)
         {
-            builder.HasKey(x => x.Id);
         }
     }
 }

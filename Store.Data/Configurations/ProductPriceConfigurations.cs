@@ -1,15 +1,19 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using Store.Data.Entities.Common;
+using Store.Data.Entities;
 
 namespace Store.Data.Configurations
 {
-    public class ProductPriceConfigurations : IEntityTypeConfiguration<ProductPrice>
+    public class ProductPriceConfigurations : BaseConfigurations<ProductPrice>
     {
-        public void Configure(EntityTypeBuilder<ProductPrice> builder)
+        protected override void ConfigureMoreProperties(EntityTypeBuilder<ProductPrice> builder)
         {
-            builder.HasKey(x=>x.Id);
-            builder.HasOne(x => x.Product).WithMany(x => x.ProductPrices).HasForeignKey(x => x.ProductId).OnDelete(DeleteBehavior.Cascade);
+            builder
+                .HasOne(x => x.Product)
+                .WithMany(x => x.ProductPrices)
+                .HasForeignKey(x => x.ProductId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }
+

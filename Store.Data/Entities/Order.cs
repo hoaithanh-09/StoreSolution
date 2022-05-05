@@ -1,13 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Store.Data.Entities.Common;
 
-namespace Store.Data.Entities.Common
+namespace Store.Data.Entities
 {
-    public class Order
+    public class Order: BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
-        public DateTime DateCreated { get; set; }
         public decimal Amount { get; set; }
         public string Note { get; set; }
         public int CustomerId { get; set; }

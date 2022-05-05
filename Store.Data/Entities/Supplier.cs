@@ -1,13 +1,13 @@
 ﻿using System.Collections.Generic;
+using Store.Data.Entities.Common;
 
-namespace Store.Data.Entities.Common
+namespace Store.Data.Entities
 {
-    public class Supplier
+    public class Supplier: BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public int AddressId { get; set; }
-        public Address Address { get; set; }
+        public virtual Address Address { get; set; }
         public virtual List<Product> Products { get; set; }
     }
 }

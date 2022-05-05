@@ -1,9 +1,9 @@
-﻿
-namespace Store.Data.Entities.Common
+﻿using Store.Data.Entities.Common;
+
+namespace Store.Data.Entities
 {
-    public class OrderProduct
+    public class OrderProduct: BaseEntity
     {
-        public int Id { get; set; } 
         public int ProductId { get; set; }
         public int OrderId { get; set; }
         public int ProductPriceId { get; set; }
@@ -11,7 +11,5 @@ namespace Store.Data.Entities.Common
         public virtual Product Product { get; set; }
         public virtual Order Order { get; set; }
         public virtual ProductPrice ProductPrice { get; set; }
-
-
     }
 }

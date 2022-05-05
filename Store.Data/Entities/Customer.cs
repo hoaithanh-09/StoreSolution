@@ -1,12 +1,11 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
+using Store.Data.Entities.Common;
 
-namespace Store.Data.Entities.Common
+namespace Store.Data.Entities
 {
-    public class Customer
+    public class Customer: BaseEntity
     {
-        public int Id { get; set; }
         public string Name { get; set; }
         public DateTime DOB { get; set; }
         public bool Gender { get; set; }
@@ -14,10 +13,9 @@ namespace Store.Data.Entities.Common
         public string PhoneNumber { get; set; }  
         public int AddressId { get; set; }
         public virtual Address Address { get; set; }    
-       // public virtual List<Address> Addresses { get; set; }    
+        //public virtual List<Address> Addresses { get; set; }    
         public virtual List<Notification> Notifications { get; set; }
         public virtual List<Cart> Carts { get; set; }
         public virtual List<Order> Orders { get; set; }
-
     }
 }

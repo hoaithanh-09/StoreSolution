@@ -1,5 +1,5 @@
 ﻿
-namespace Store.Data.Entities.Common
+namespace Store.Data.Entities
 {
     public class ProductDetail
     {
