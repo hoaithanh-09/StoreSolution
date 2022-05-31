@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Services.Catalog.OrderStatuses
 {
-    internal class IOrderStatusService
+    public interface IOrderStatusService
     {
     }
 }

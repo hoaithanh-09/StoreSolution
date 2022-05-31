@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Store.Data.DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace Store.Services.Catalog.OrderCoupons
 {
-    internal class OrderCouponService
+    public class OrderCouponService : IOrderCouponService
     {
+        private readonly SqlDbContext _dbContext;
+        public OrderCouponService(SqlDbContext dbContext)
+        {
+            _dbContext = dbContext;
+        }
     }
 }

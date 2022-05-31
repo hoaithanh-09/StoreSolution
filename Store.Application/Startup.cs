@@ -19,6 +19,7 @@ using System.Collections.Generic;
 using Store.Application.Extensions;
 using Store.Data.DataAccess;
 using Store.Services.Core;
+using Store.Services;
 
 namespace Store.Application
 {
@@ -113,6 +114,7 @@ namespace Store.Application
             services.AddDbContext<SqlDbContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("SqlDb"))
             );
+            ServiceDI.AddDependencies(services);
         }
 
         public void Configure(

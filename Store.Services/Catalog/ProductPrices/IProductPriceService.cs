@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Services.Catalog.ProductPrices
 {
-    internal class IProductPriceService
+    public interface IProductPriceService
     {
     }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Services.Catalog.ProductImages
 {
-    internal class IProductImageService
+    public interface  IProductImageService
     {
     }
 }

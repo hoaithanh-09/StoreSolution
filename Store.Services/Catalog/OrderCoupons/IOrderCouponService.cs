@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Services.Catalog.OrderCoupons
 {
-    internal class IOrderCouponService
+    public interface IOrderCouponService
     {
     }
 }

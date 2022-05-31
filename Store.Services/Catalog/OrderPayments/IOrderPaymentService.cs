@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Store.Services.Catalog.OrderPayments
 {
-    internal class IOrderPaymentService
+    public interface IOrderPaymentService
     {
     }
 }
