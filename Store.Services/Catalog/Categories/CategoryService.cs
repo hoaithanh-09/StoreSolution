@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Store.Services.Catalog.Categories
 {
-    internal class CategoryService : BaseService<Category, GetCategoryPagingRequest, CategoryViewModel, CategoryCreateRequest, CategoryUpdateRequest>, ICategoryService
+    public class CategoryService : BaseService<Category, GetCategoryPagingRequest, CategoryViewModel, CategoryCreateRequest, CategoryUpdateRequest>, ICategoryService
     {
         public CategoryService(IMapper mapper, IUnitOfWork unitOfWork, IBaseRepository<Category> repository) : base(mapper, unitOfWork, repository)
         {

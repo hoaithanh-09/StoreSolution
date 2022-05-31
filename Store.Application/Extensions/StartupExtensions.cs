@@ -17,6 +17,27 @@ using Store.Data.Repositories;
 using Store.Data.Repositories.Common;
 using Store.Services.Core;
 using Store.Services.MappingProfiles;
+using Store.Services.Catalog.ProductPrices;
+using Store.Services.Catalog.OrderPayments;
+using Store.Services.Catalog.OrderProducts;
+using Store.Services.Catalog.OrderStatuses;
+using Store.Services.Catalog.ProductImages;
+using Store.Services.Catalog.CategoryProducts;
+using Store.Services.Catalog.Carts;
+using Store.Services.Catalog.Categories;
+using Store.Services.Catalog.Coupons;
+using Store.Services.Catalog.Customers;
+using Store.Services.Catalog.Details;
+using Store.Services.Catalog.Notifications;
+using Store.Services.Catalog.Orders;
+using Store.Services.Catalog.OrderCoupons;
+using Store.Services.Catalog.Payments;
+using Store.Services.Catalog.Products;
+using Store.Services.Catalog.ProductDetails;
+using Store.Services.Catalog.Shippers;
+using Store.ViewModels.Catalog.Carts;
+using Store.ViewModels.Catalog.Categories;
+using Store.ViewModels.Catalog.Payments;
 
 namespace Store.Application.Extensions
 {
@@ -44,6 +65,28 @@ namespace Store.Application.Extensions
             #endregion
 
             #region For implement base controller
+            services.AddTransient<ICartService, CartService>();
+            services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<ICouponService, CouponService>();
+            services.AddTransient<ICustomerService, CustomerService>();
+            services.AddTransient<IDetailService, DetailService>();
+            services.AddTransient<INotificationService, NotificationService>();
+            services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IOrderCouponService, OrderCouponService>();
+            services.AddTransient<IOrderPaymentService, OrderPaymentService>();
+            services.AddTransient<IOrderPrdoductService, OrderProductService>();
+            services.AddTransient<IOrderStatusService, OrderStatusService>();
+            services.AddTransient<IPaymentService, PaymentService>();
+            services.AddTransient<IProductService, ProductService>();
+            services.AddTransient<IProductDetailService, ProductDetailService>();
+            services.AddTransient<IProductImageService, ProductImageService>();
+            services.AddTransient<IProductPriceService, ProductPriceService>();
+            services.AddTransient<IShipperService, ShipperService>();
+
+            //services.AddTransient<IBaseService<Cart, GetCartPagingRequest, CartViewModel, CartCreateRequest, CartUpdateRequest>, BaseService<Cart, GetCartPagingRequest, CartViewModel, CartCreateRequest, CartUpdateRequest>>();
+            //services.AddTransient<IBaseService<Category, GetCategoryPagingRequest, CategoryViewModel, CategoryCreateRequest, CategoryUpdateRequest>, BaseService<Category, GetCategoryPagingRequest, CategoryViewModel, CategoryCreateRequest, CategoryUpdateRequest>>();
+            //services.AddTransient<IBaseService<Payment, GetPaymentPagingRequest, PaymentViewModel, PaymentCreateRequest, PaymentUpdateRequest>, BaseService<Payment, GetPaymentPagingRequest, PaymentViewModel, PaymentCreateRequest, PaymentUpdateRequest>>();
+
             #endregion
         }
 
@@ -57,6 +100,36 @@ namespace Store.Application.Extensions
             #endregion
 
             #region For implement base service
+
+
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IRoleRepository, RoleRepository>();
+            services.AddTransient<IUserRoleRepository, UserRoleRepository>();
+            services.AddTransient<IPermissionRepository, PermissionRepository>();
+            services.AddTransient<IUserPermissionRepository, UserPermissionRepository>();
+            services.AddTransient<IRolePermissionRepository, RolePermissionRepository>();
+
+
+            services.AddTransient<IBaseRepository<Cart>, BaseRepository<Cart>>();
+            services.AddTransient<IBaseRepository<Category>, BaseRepository<Category>>();
+            services.AddTransient<IBaseRepository<CategoryProduct>, BaseRepository<CategoryProduct>>();
+            services.AddTransient<IBaseRepository<Coupon>, BaseRepository<Coupon>>();
+            services.AddTransient<IBaseRepository<Customer>, BaseRepository<Customer>>();
+            services.AddTransient<IBaseRepository<Detail>, BaseRepository<Detail>>();
+            services.AddTransient<IBaseRepository<Notification>, BaseRepository<Notification>>();
+            services.AddTransient<IBaseRepository<OrderCoupon>, BaseRepository<OrderCoupon>>();
+            services.AddTransient<IBaseRepository<OrderPayment>, BaseRepository<OrderPayment>>();
+            services.AddTransient<IBaseRepository<OrderProduct>, BaseRepository<OrderProduct>>();
+            services.AddTransient<IBaseRepository<Order>, BaseRepository<Order>>();
+            services.AddTransient<IBaseRepository<OrderStatus>, BaseRepository<OrderStatus>>();
+            services.AddTransient<IBaseRepository<Payment>, BaseRepository<Payment>>();
+            services.AddTransient<IBaseRepository<ProductDetail>, BaseRepository<ProductDetail>>();
+            services.AddTransient<IBaseRepository<ProductImage>, BaseRepository<ProductImage>>();
+            services.AddTransient<IBaseRepository<ProductPrice>, BaseRepository<ProductPrice>>();
+            services.AddTransient<IBaseRepository<Product>, BaseRepository<Product>>();
+            services.AddTransient<IBaseRepository<Shipper>, BaseRepository<Shipper>>();
+            services.AddTransient<IBaseRepository<Supplier>, BaseRepository<Supplier>>();
+
             #endregion
         }
 

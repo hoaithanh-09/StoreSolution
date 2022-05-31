@@ -114,7 +114,7 @@ namespace Store.Application
             services.AddDbContext<SqlDbContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("SqlDb"))
             );
-            ServiceDI.AddDependencies(services);
+
         }
 
         public void Configure(

@@ -58,5 +58,14 @@ namespace Store.Application.Controllers
                 return BadRequest(result.ErrorMessages);
             return Ok(result);
         }
+
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register(UserAddModel model)
+        {
+            var result = await _userService.Add(model);
+            if (!result.Succeed)
+                return BadRequest(result.ErrorMessages);
+            return Ok(result);
+        }
     }
 }

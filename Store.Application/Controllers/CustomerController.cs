@@ -8,7 +8,7 @@ using Store.ViewModels.Catalog.Customers;
 namespace Store.Application.Controllers
 {
 
-    [Authorize]
+   // [Authorize]
     [ApiController]
     [ApiVersion("2.0")]
     [Route("v{version:apiVersion}/[controller]")]

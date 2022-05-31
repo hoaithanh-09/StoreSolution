@@ -38,7 +38,7 @@ namespace Store.ViewModels.Authentication
 
     public class UserAddModel
     {
-        public int EmployeeId { get; set; }
+        public int? EmployeeId { get; set; }
 
         public string Fullname { get; set; }
 

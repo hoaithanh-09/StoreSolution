@@ -16,7 +16,7 @@ namespace Store.Application.Controllers.Common
 		- U: Update model
 	*/
 
-	[Authorize]
+	//[Authorize]
 	[Route("api/[controller]")]
 	[ApiController]
 	public class BaseController<E, F, V, A, U> : ControllerBase where E : class where F : class where V : class where A : class where U : class
