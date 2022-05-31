@@ -38,6 +38,14 @@ using Store.Services.Catalog.Shippers;
 using Store.ViewModels.Catalog.Carts;
 using Store.ViewModels.Catalog.Categories;
 using Store.ViewModels.Catalog.Payments;
+using Store.ViewModels.Catalog.Coupons;
+using Store.ViewModels.Catalog.Customers;
+using Store.ViewModels.Catalog.Details;
+using Store.ViewModels.Catalog.Notifications;
+using Store.ViewModels.Catalog.Orders;
+using Store.ViewModels.Catalog.Products;
+using Store.ViewModels.Catalog.Shippers;
+using Store.ViewModels.Catalog.Suppliers;
 
 namespace Store.Application.Extensions
 {
@@ -65,27 +73,44 @@ namespace Store.Application.Extensions
             #endregion
 
             #region For implement base controller
-            services.AddTransient<ICartService, CartService>();
-            services.AddTransient<ICategoryService, CategoryService>();
-            services.AddTransient<ICouponService, CouponService>();
-            services.AddTransient<ICustomerService, CustomerService>();
-            services.AddTransient<IDetailService, DetailService>();
-            services.AddTransient<INotificationService, NotificationService>();
-            services.AddTransient<IOrderService, OrderService>();
+            //services.AddTransient<ICartService, CartService>();
+            //services.AddTransient<ICategoryService, CategoryService>();
+            //services.AddTransient<ICouponService, CouponService>();
+            //services.AddTransient<ICustomerService, CustomerService>();
+            //services.AddTransient<IDetailService, DetailService>();
+            //services.AddTransient<INotificationService, NotificationService>();
+            //services.AddTransient<IOrderService, OrderService>();
+            //services.AddTransient<IOrderCouponService, OrderCouponService>();
+            //services.AddTransient<IOrderPaymentService, OrderPaymentService>();
+            //services.AddTransient<IOrderPrdoductService, OrderProductService>();
+            //services.AddTransient<IOrderStatusService, OrderStatusService>();
+            //services.AddTransient<IPaymentService, PaymentService>();
+            //services.AddTransient<IProductService, ProductService>();
+            //services.AddTransient<IProductDetailService, ProductDetailService>();
+            //services.AddTransient<IProductImageService, ProductImageService>();
+            //services.AddTransient<IProductPriceService, ProductPriceService>();
+            //services.AddTransient<IShipperService, ShipperService>();
+
+            services.AddTransient<IBaseService<Cart, GetCartPagingRequest, CartViewModel, CartCreateRequest, CartUpdateRequest>, BaseService<Cart, GetCartPagingRequest, CartViewModel, CartCreateRequest, CartUpdateRequest>>();
+            services.AddTransient<IBaseService<Category, GetCategoryPagingRequest, CategoryViewModel, CategoryCreateRequest, CategoryUpdateRequest>, BaseService<Category, GetCategoryPagingRequest, CategoryViewModel, CategoryCreateRequest, CategoryUpdateRequest>>();
+            services.AddTransient<IBaseService<Payment, GetPaymentPagingRequest, PaymentViewModel, PaymentCreateRequest, PaymentUpdateRequest>, BaseService<Payment, GetPaymentPagingRequest, PaymentViewModel, PaymentCreateRequest, PaymentUpdateRequest>>();
+            services.AddTransient<IBaseService<Coupon, GetCouponPagingRequest, CouponViewModel, CouponCreateRequest, CouponUpdateRequest>, BaseService<Coupon, GetCouponPagingRequest, CouponViewModel, CouponCreateRequest, CouponUpdateRequest>>();
+            services.AddTransient<IBaseService<Customer, GetCustomerPagingRequest, CustomerViewModel, CustomerCreateRequest, CustomerUpdateRequest>, BaseService<Customer, GetCustomerPagingRequest, CustomerViewModel, CustomerCreateRequest, CustomerUpdateRequest>>();
+            services.AddTransient<IBaseService<Detail, GetDetailPagingRequest, DetailViewModel, DetailCreateRequest, DetailUpdateRequest>, BaseService<Detail, GetDetailPagingRequest, DetailViewModel, DetailCreateRequest, DetailUpdateRequest>>();
+            services.AddTransient<IBaseService<Notification, GetNotificationPagingRequest, NotificationViewModel, NotificationCreateRequest, NotificationUpdateRequest>, BaseService<Notification, GetNotificationPagingRequest, NotificationViewModel, NotificationCreateRequest, NotificationUpdateRequest>>();
+            services.AddTransient<IBaseService<Order, GetOrderPagingRequest, OrderViewModel, OrderCreateRequest, OrderUpdateRequest>, BaseService<Order, GetOrderPagingRequest, OrderViewModel, OrderCreateRequest, OrderUpdateRequest>>();
+            services.AddTransient<IBaseService<Product, GetProductPagingRequest, ProductViewModel, ProductCreateRequest, ProductUpdateRequest>, BaseService<Product, GetProductPagingRequest, ProductViewModel, ProductCreateRequest, ProductUpdateRequest>>();
+            services.AddTransient<IBaseService<Shipper, GetShipperPagingRequest, ShipperViewModel, ShipperCreateRequest, ShipperUpdateRequest>, BaseService<Shipper, GetShipperPagingRequest, ShipperViewModel, ShipperCreateRequest, ShipperUpdateRequest>>();
+            services.AddTransient<IBaseService<Supplier, GetSupplierPagingRequest, SupplierViewModel, SupplierCreateRequest, SupplierUpdateRequest>, BaseService<Supplier, GetSupplierPagingRequest, SupplierViewModel, SupplierCreateRequest, SupplierUpdateRequest>>();
+
             services.AddTransient<IOrderCouponService, OrderCouponService>();
             services.AddTransient<IOrderPaymentService, OrderPaymentService>();
             services.AddTransient<IOrderPrdoductService, OrderProductService>();
             services.AddTransient<IOrderStatusService, OrderStatusService>();
-            services.AddTransient<IPaymentService, PaymentService>();
-            services.AddTransient<IProductService, ProductService>();
             services.AddTransient<IProductDetailService, ProductDetailService>();
             services.AddTransient<IProductImageService, ProductImageService>();
             services.AddTransient<IProductPriceService, ProductPriceService>();
-            services.AddTransient<IShipperService, ShipperService>();
-
-            //services.AddTransient<IBaseService<Cart, GetCartPagingRequest, CartViewModel, CartCreateRequest, CartUpdateRequest>, BaseService<Cart, GetCartPagingRequest, CartViewModel, CartCreateRequest, CartUpdateRequest>>();
-            //services.AddTransient<IBaseService<Category, GetCategoryPagingRequest, CategoryViewModel, CategoryCreateRequest, CategoryUpdateRequest>, BaseService<Category, GetCategoryPagingRequest, CategoryViewModel, CategoryCreateRequest, CategoryUpdateRequest>>();
-            //services.AddTransient<IBaseService<Payment, GetPaymentPagingRequest, PaymentViewModel, PaymentCreateRequest, PaymentUpdateRequest>, BaseService<Payment, GetPaymentPagingRequest, PaymentViewModel, PaymentCreateRequest, PaymentUpdateRequest>>();
+            services.AddTransient<ICategoryProductService, CategoryProductService>();
 
             #endregion
         }
