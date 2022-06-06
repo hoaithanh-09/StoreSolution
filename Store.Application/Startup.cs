@@ -20,6 +20,7 @@ using Store.Application.Extensions;
 using Store.Data.DataAccess;
 using Store.Services.Core;
 using Store.Services;
+using Store.Services.MappingProfiles;
 
 namespace Store.Application
 {
@@ -114,6 +115,7 @@ namespace Store.Application
             services.AddDbContext<SqlDbContext>(option =>
                 option.UseSqlServer(Configuration.GetConnectionString("SqlDb"))
             );
+            services.AddAutoMapper(c => c.AddProfile<AutoMapping>(), typeof(Startup));
 
         }
 

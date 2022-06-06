@@ -25,6 +25,7 @@
 		<Folder Include="Resources\Templates\" />
 	</ItemGroup>
 	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
 		<PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.13.1" />
 
 		<PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.2.0" />
